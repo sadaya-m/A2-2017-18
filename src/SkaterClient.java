@@ -14,14 +14,20 @@
 
 import javax.swing.*;
 import java.text.DecimalFormat;
+import java.io.*;
 
 public class SkaterClient
 {  // begin class
-    public static void main(String args[])
+    public static void main(String args[]) throws IOException
     {  // begin main
     // ***** declaration of constants *****
 
     // ***** declaration of variables *****
+        
+        String strin;           //string
+        
+        String[] tokens = null;     //tokens for splitting
+        String delim = "[ :]+";     //delimiter string for splitting
 
     // ***** create objects *****
 
@@ -40,12 +46,16 @@ public class SkaterClient
 
     // ***** get input *****
 
-        // all input is gathered in this section
-        // remember to put ConsoleReader.class into the
-        // same folder.
+        BufferedReader fin = new BufferedReader(new FileReader("skaterList.txt"));
 
     // ***** processing *****
 
+        strin = fin.readLine();
+        
+        while(strin != null){
+            System.out.println(strin);
+            strin = fin.readLine();
+        }//end eof loop
 
     // ***** output *****
 
