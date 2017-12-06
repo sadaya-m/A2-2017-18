@@ -28,7 +28,9 @@ public class SkaterClient
         
         String[] tokens = null;     //tokens for splitting
         String delim = "[ :]+";     //delimiter string for splitting
-
+        
+        SkaterClass ID = new SkaterClass();
+        
     // ***** create objects *****
 
 
@@ -53,13 +55,19 @@ public class SkaterClient
         strin = fin.readLine();
         
         while(strin != null){
-            System.out.println(strin);
+            System.out.println(ID.toStringID());        //print student id
+            tokens = strin.split(delim);        //split strin to tokens
+            
+            for(int i = 0; i < tokens.length; i++){
+                System.out.println(tokens[i]);              //print each token
+            }//end for loop
+            
+            //System.out.println(strin);
             strin = fin.readLine();
         }//end eof loop
 
     // ***** output *****
 
-        // all formatted ouput is printed in this section
 
     // ***** closing message *****
 
