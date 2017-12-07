@@ -9,7 +9,7 @@
 //
 //  Input:		describe any input from keyboard or file
 //
-//  Output:		describe the result of your program
+    //  Output:		describe the result of your program
 // ***********************************************************************
 
 import javax.swing.*;
@@ -28,8 +28,6 @@ public class SkaterClient
         
         String[] tokens = null;     //tokens for splitting
         String delim = "[ :]+";     //delimiter string for splitting
-        
-        SkaterClass ID = new SkaterClass();
         
     // ***** create objects *****
 
@@ -55,6 +53,8 @@ public class SkaterClient
         strin = fin.readLine();
         
         while(strin != null){
+            SkaterClass ID = new SkaterClass();
+            
             System.out.println(ID.toStringID());        //print student id
             tokens = strin.split(delim);        //split strin to tokens
             

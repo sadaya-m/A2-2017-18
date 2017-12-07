@@ -4,7 +4,7 @@
  * 
  * Assignment:	A2-2017-18
  *
- * Description:	skater class
+ * Description:	skater class    get id
  * *************************************************************/
  
  // import files here as needed
@@ -31,7 +31,6 @@
         *   out: none
         ************************************/
        public SkaterClass(){
-           System.out.println("hello");
            id = nextID++;
        }//end skaterclass
      
