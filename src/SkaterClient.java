@@ -27,7 +27,11 @@ public class SkaterClient
         String strin;           //string
         
         String[] tokens = null;     //tokens for splitting
-        String delim = "[ :]+";     //delimiter string for splitting
+        String delim = "[ ]+";     //delimiter string for splitting
+        
+        SkaterClass[] timesList = new SkaterClass[10];
+        
+        int n = 0;  //counter
         
     // ***** create objects *****
 
@@ -53,21 +57,32 @@ public class SkaterClient
         strin = fin.readLine();
         
         while(strin != null){
-            SkaterClass ID = new SkaterClass();
+            //SkaterClass ID = new SkaterClass();
+            //System.out.println(ID.toStringID());        //print student id
             
-            System.out.println(ID.toStringID());        //print student id
+            timesList[n] = new SkaterClass();       //create an object 
+            
             tokens = strin.split(delim);        //split strin to tokens
             
             for(int i = 0; i < tokens.length; i++){
                 System.out.println(tokens[i]);              //print each token
+                String[] time = tokens[i].split("[:]+");
+                //System.out.println(time[1]);      //testing
+                
+                timesList[n].pullTime(i, Integer.parseInt(time[0]), Integer.parseInt(time[1]));
             }//end for loop
             
+            n++; //increase counter by one
             //System.out.println(strin);
             strin = fin.readLine();
         }//end eof loop
 
     // ***** output *****
-
+    
+        for(int i = 0; i < n; i++){
+            System.out.println(timesList[i].toString());
+        } // end for loop
+        
 
     // ***** closing message *****
 
