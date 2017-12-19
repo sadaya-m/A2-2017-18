@@ -15,11 +15,14 @@
  	
     // *********** class constants ***********
 
+        private final int min = 60;     //constant of seconds in minutes
+     
 
     // ********** instance variable **********
      
         private int minutes = 0;        //minutes
         private int seconds = 0;        //seconds
+        private int average = 0;        //average in seconds
      
     // ********** constructors ***************
         
@@ -56,6 +59,19 @@
         }//end getSeconds
         
         /************************************
+        * Purpose: get the average
+        * Interface:
+        *   in: none
+        *   out: average
+        ************************************/
+        public int getAverage(){
+            int average;
+            average = (getMinutes()*min) + getSeconds();
+            
+            return average;
+        }//end getAverage
+        
+        /************************************
         * Purpose: return a string of skater's times in minutes and seconds
         * Interface:
         *   in: none
@@ -67,6 +83,53 @@
             
             return string;
         }//end toString
+        
+        
+        /************************************
+        * Purpose: return the new average in seconds
+        * Interface:
+        *   in: none
+        *   out: int average
+        ************************************/
+        public int getTotalAverage(){
+            return average;
+        }
+        
+        /************************************
+        * Purpose: convert seconds to minutes
+        * Interface:
+        *   in: none 
+        *   out: minutes
+        ************************************/
+        public int getAvgMinutes(){
+            int minutes = getTotalAverage()/60;
+            return minutes;
+        }//end getAvgMinutes
+        
+        /************************************
+        * Purpose: convert seconds
+        * Interface:
+        *   in: none 
+        *   out: seconds
+        ************************************/
+        public int getAvgSeconds(){
+            int seconds = (getTotalAverage() % 60);
+            return seconds;
+        }//end getAvgSeconds
+        
+        /************************************
+        * Purpose: return the skater's average time in minutes and seconds
+        * Interface:
+        *   in: none
+        *   out: string
+        ************************************/
+        public String toStringAvg(){
+            String string;
+            string = String.format("%02d:%02d", this.getAvgMinutes(), this.getAvgSeconds());
+            
+            return string;
+        }//end toStringAvg
+        
         
     // ********** mutators *******************
         
@@ -100,5 +163,15 @@
         public void setSeconds(int ss){
             this.seconds = ss;
         }//end setSeconds
+        
+        /************************************
+        * Purpose: set time in minutes and seconds
+        * Interface:
+        *   in: minutes, seconds
+        *   out: none
+        ************************************/
+        public void setAverage(int avg){
+            this.average = avg;
+        }//end setTime
  
  }  // end class

@@ -31,6 +31,8 @@ public class SkaterClient
         
         SkaterClass[] timesList = new SkaterClass[10];
         
+        int averageList[] = new int[10];
+        
         int n = 0;  //counter
         
     // ***** create objects *****
@@ -65,22 +67,32 @@ public class SkaterClient
             tokens = strin.split(delim);        //split strin to tokens
             
             for(int i = 0; i < tokens.length; i++){
-                System.out.println(tokens[i]);              //print each token
+                //System.out.println(tokens[i]);              //print each token
                 String[] time = tokens[i].split("[:]+");
                 //System.out.println(time[1]);      //testing
                 
                 timesList[n].pullTime(i, Integer.parseInt(time[0]), Integer.parseInt(time[1]));
             }//end for loop
             
+            int sum = 0;
+            for(int i = 0; i < 10; i++){
+                int x = (int) timesList[n].getAverage(i);
+                sum = sum + x;
+            }//end for loop for getting the average
+            //System.out.println(sum);
+            int average = sum/tokens.length;        //get the average
+            
+            timesList[n].pullAverage(n, average);
+            
             n++; //increase counter by one
             //System.out.println(strin);
             strin = fin.readLine();
         }//end eof loop
-
+        
     // ***** output *****
     
         for(int i = 0; i < n; i++){
-            System.out.println(timesList[i].toString());
+            System.out.println(timesList[i].toString(i));
         } // end for loop
         
 

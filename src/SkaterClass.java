@@ -63,17 +63,33 @@
        }//end getTimes
        
        /************************************
-        * Purpose: return a string of the skater's id and times
+        * Purpose: return the average of the skater's times
+        * Interface:
+        *   in: none
+        *   out: id
+        ************************************/
+       public double getAverage(int index){
+            return this.times[index].getAverage();
+       }//end getAverage
+
+       public String getNewAverage(int index){
+           return this.times[index].toStringAvg();
+       }
+       
+       /************************************
+        * Purpose: return a string of the skater's id, times, and average
         * Interface:
         *   in: none
         *   out: string of skater's id and times
         ************************************/
-       public String toString(){
+       public String toString(int index){
            String string = "Student: " + this.getID() + "\n";
            
            for(int i = 0; i < 10; i++){
                string += this.getTimes(i) + " ";
            }//end for loop
+           
+           string += "\n" + this.getNewAverage(index);
            
            return string;
        }//end toString
@@ -88,6 +104,16 @@
         ************************************/
        public void pullTime(int i, int mm, int ss){
            this.times[i].setTime(mm,ss);
+       }
+       
+       /************************************
+        * Purpose: sets values of average seconds
+        * Interface:
+        *   in: seconds
+        *   out: none
+        ************************************/
+       public void pullAverage(int i, int avg){
+           this.times[i].setAverage(avg);
        }
  
  }  // end class
