@@ -63,24 +63,51 @@
        }//end getTimes
        
        /************************************
-        * Purpose: return the average of the skater's times
+        * Purpose: return the average (in seconds) of a skater's times
         * Interface:
         *   in: none
-        *   out: id
+        *   out: average
         ************************************/
-       public double getAverage(int index){
+       public int getAverage(int index){
             return this.times[index].getAverage();
        }//end getAverage
-
-       public String getNewAverage(int index){
-           return this.times[index].toStringAvg();
-       }
        
        /************************************
-        * Purpose: return a string of the skater's id, times, and average
+        * Purpose: return the average of all of the skater's times
         * Interface:
         *   in: none
-        *   out: string of skater's id and times
+        *   out: average
+        ************************************/
+       public double getTotalAverage(int index){
+            return this.times[index].getTotalAverage();
+       }//end getAverage
+
+       /************************************
+        * Purpose: return the new average (in seconds) of the skater's times
+        * Interface:
+        *   in: none
+        *   out: string average
+        ************************************/
+       public String getNewAverage(int index){
+           return this.times[index].toStringAvg();
+       }//end getNewAverage
+       
+       /************************************
+        * Purpose: return the average speed of a skater object's times
+        * Interface:
+        *   in: none
+        *   out: int average
+        ************************************/
+       public String getAverageSpeed(int index){
+           return this.times[index].toStringAvgSpeed();
+       }//end getAverageSpeed
+       
+       
+       /************************************
+        * Purpose: return a string of the skater's id, times, average time, average speed
+        * Interface:
+        *   in: none
+        *   out: string of skater's id, times, average time, average speed
         ************************************/
        public String toString(int index){
            String string = "Student: " + this.getID() + "\n";
@@ -89,7 +116,11 @@
                string += this.getTimes(i) + " ";
            }//end for loop
            
+           string += "\n" + this.getTotalAverage(index);
+           
            string += "\n" + this.getNewAverage(index);
+           
+           string += "\n" + this.getAverageSpeed(index) + "km/h";
            
            return string;
        }//end toString

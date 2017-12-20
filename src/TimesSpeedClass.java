@@ -1,3 +1,6 @@
+
+import java.io.PrintStream;
+
 /* **********************************************************
  * Programmer:	Ma Pauline Sadaya
  * Class:	CS30S
@@ -16,13 +19,14 @@
     // *********** class constants ***********
 
         private final int min = 60;     //constant of seconds in minutes
+        private final double km = 5;       //total distance
      
 
     // ********** instance variable **********
      
         private int minutes = 0;        //minutes
         private int seconds = 0;        //seconds
-        private int average = 0;        //average in seconds
+        private double average = 0;        //average in seconds
      
     // ********** constructors ***************
         
@@ -91,7 +95,7 @@
         *   in: none
         *   out: int average
         ************************************/
-        public int getTotalAverage(){
+        public double getTotalAverage(){
             return average;
         }
         
@@ -102,7 +106,7 @@
         *   out: minutes
         ************************************/
         public int getAvgMinutes(){
-            int minutes = getTotalAverage()/60;
+            int minutes = (int) (getTotalAverage()/min);
             return minutes;
         }//end getAvgMinutes
         
@@ -113,7 +117,7 @@
         *   out: seconds
         ************************************/
         public int getAvgSeconds(){
-            int seconds = (getTotalAverage() % 60);
+            int seconds = (int) (getTotalAverage() % min);
             return seconds;
         }//end getAvgSeconds
         
@@ -130,6 +134,42 @@
             return string;
         }//end toStringAvg
         
+        
+        /************************************
+        * Purpose: convert total average of skater object's times from s to h
+        * Interface:
+        *   in: none
+        *   out: int hours
+        ************************************/
+        public double getAvgHours(){
+            double hours = this.getTotalAverage()/3600;
+            
+            return hours;
+        }//end toStringAvg
+        
+        /************************************
+        * Purpose: get speed
+        * Interface:
+        *   in: none 
+        *   out: int speed
+        ************************************/
+        public double getAvgSpeed(){
+            double speed = this.getAvgHours()/km;
+            return speed;
+        }//end getAvgSpeed
+            
+        /************************************
+        * Purpose: return the skater's average speed
+        * Interface:
+        *   in: none
+        *   out: string
+        ************************************/
+        public String toStringAvgSpeed(){
+            String string;
+            string = String.format("%.3f", this.getAvgHours());
+            
+            return string;
+        }//end toStringAvg
         
     // ********** mutators *******************
         

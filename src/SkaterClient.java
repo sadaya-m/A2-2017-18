@@ -76,7 +76,7 @@ public class SkaterClient
             
             int sum = 0;
             for(int i = 0; i < 10; i++){
-                int x = (int) timesList[n].getAverage(i);
+                int x = timesList[n].getAverage(i);
                 sum = sum + x;
             }//end for loop for getting the average
             //System.out.println(sum);
