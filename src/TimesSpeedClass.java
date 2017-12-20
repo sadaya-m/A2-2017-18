@@ -27,6 +27,7 @@ import java.io.PrintStream;
         private int minutes = 0;        //minutes
         private int seconds = 0;        //seconds
         private double average = 0;        //average in seconds
+        private int hours = 0;          //hours
      
     // ********** constructors ***************
         
@@ -68,7 +69,7 @@ import java.io.PrintStream;
         *   in: none
         *   out: average
         ************************************/
-        public int getAverage(){
+        public double getAverage(){
             int average;
             average = (getMinutes()*min) + getSeconds();
             
@@ -166,10 +167,45 @@ import java.io.PrintStream;
         ************************************/
         public String toStringAvgSpeed(){
             String string;
-            string = String.format("%.3f", this.getAvgHours());
+            string = String.format("%.3f", this.getAvgSpeed());
             
             return string;
         }//end toStringAvg
+        
+        /************************************
+        * Purpose: convert seconds of each time in a skater object to hours
+        * Interface:
+        *   in: none 
+        *   out: hours
+        ************************************/
+        public double getHours(){
+            double hour = this.getAverage()/3600;
+            return hour;
+        }//end getHours
+        
+        /************************************
+        * Purpose: convert seconds of each time in a skater object to hours
+        * Interface:
+        *   in: none 
+        *   out: hours
+        ************************************/
+        public double getSpeed(){
+            double hour = this.getHours()/km;
+            return hour;
+        }//end getHours
+        
+        /************************************
+        * Purpose: return the skater's speed for each individual time
+        * Interface:
+        *   in: none
+        *   out: string
+        ************************************/
+        public String toStringSpeed(){
+            String string;
+            string = String.format("%.3f", this.getSpeed());
+            
+            return string;
+        }//end toStringSpeed
         
     // ********** mutators *******************
         

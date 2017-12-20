@@ -68,7 +68,7 @@
         *   in: none
         *   out: average
         ************************************/
-       public int getAverage(int index){
+       public double getAverage(int index){
             return this.times[index].getAverage();
        }//end getAverage
        
@@ -100,6 +100,16 @@
         ************************************/
        public String getAverageSpeed(int index){
            return this.times[index].toStringAvgSpeed();
+       }//end getAverageSpeed
+       
+        /************************************
+        * Purpose: return the average speed of a skater object's times
+        * Interface:
+        *   in: none
+        *   out: int average
+        ************************************/
+       public String getSpeed(int index){
+           return this.times[index].toStringSpeed();
        }//end getAverageSpeed
        
        

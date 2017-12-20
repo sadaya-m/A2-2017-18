@@ -72,11 +72,13 @@ public class SkaterClient
                 //System.out.println(time[1]);      //testing
                 
                 timesList[n].pullTime(i, Integer.parseInt(time[0]), Integer.parseInt(time[1]));
+                
+                System.out.println(tokens[i] + "\t"+ timesList[n].getSpeed(i));//testing for getting the average speed of each time
             }//end for loop
             
             int sum = 0;
             for(int i = 0; i < 10; i++){
-                int x = timesList[n].getAverage(i);
+                int x = (int) timesList[n].getAverage(i);
                 sum = sum + x;
             }//end for loop for getting the average
             //System.out.println(sum);
@@ -95,7 +97,7 @@ public class SkaterClient
             System.out.println(timesList[i].toString(i));
         } // end for loop
         
-
+        
     // ***** closing message *****
 
         System.out.println("end of processing");
