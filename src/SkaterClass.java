@@ -4,7 +4,7 @@
  * 
  * Assignment:	A2-2017-18
  *
- * Description:	skater class    get id
+ * Description:	skater class
  * *************************************************************/
  
  // import files here as needed
@@ -48,7 +48,7 @@
         *   in: none
         *   out: id
         ************************************/
-       public int getID(){
+       private int getID(){
            return id;
        }//end getID
        
@@ -58,7 +58,7 @@
         *   in: none
         *   out: return string of times (in mm:ss)
         ************************************/
-       public String getTimes(int index){
+       private String getTimes(int index){
            return this.times[index].toString();
        }//end getTimes
        
@@ -78,7 +78,7 @@
         *   in: none
         *   out: average
         ************************************/
-       public double getTotalAverage(int index){
+       private double getTotalAverage(int index){
             return this.times[index].getTotalAverage();
        }//end getAverage
 
@@ -88,7 +88,7 @@
         *   in: none
         *   out: string average
         ************************************/
-       public String getNewAverage(int index){
+       private String getNewAverage(int index){
            return this.times[index].toStringAvg();
        }//end getNewAverage
        
@@ -98,7 +98,7 @@
         *   in: none
         *   out: int average
         ************************************/
-       public String getAverageSpeed(int index){
+       private String getAverageSpeed(int index){
            return this.times[index].toStringAvgSpeed();
        }//end getAverageSpeed
        
@@ -120,17 +120,17 @@
         *   out: string of skater's id, times, average time, average speed
         ************************************/
        public String toString(int index){
-           String string = "Student: " + this.getID() + "\n";
+           String string = "SkaterID: " + this.getID() + "\n";
            
            for(int i = 0; i < 10; i++){
                string += this.getTimes(i) + " ";
            }//end for loop
            
-           string += "\n" + this.getTotalAverage(index);
+           //string += "\n" + this.getTotalAverage(index);
            
-           string += "\n" + this.getNewAverage(index);
+           string += "\nAverageTime: " + this.getNewAverage(index);
            
-           string += "\n" + this.getAverageSpeed(index) + "km/h";
+           string += "\nAverageSpeed: " + this.getAverageSpeed(index) + "km/h";
            
            return string;
        }//end toString

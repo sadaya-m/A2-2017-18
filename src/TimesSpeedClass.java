@@ -49,7 +49,7 @@ import java.io.PrintStream;
         *   in: none 
         *   out: minutes
         ************************************/
-        public int getMinutes(){
+        private int getMinutes(){
             return minutes;
         }//end getMinutes
 
@@ -59,7 +59,7 @@ import java.io.PrintStream;
         *   in: none
         *   out: seconds
         ************************************/
-        public int getSeconds(){
+        private int getSeconds(){
             return seconds;
         }//end getSeconds
         
@@ -106,7 +106,7 @@ import java.io.PrintStream;
         *   in: none 
         *   out: minutes
         ************************************/
-        public int getAvgMinutes(){
+        private int getAvgMinutes(){
             int minutes = (int) (getTotalAverage()/min);
             return minutes;
         }//end getAvgMinutes
@@ -117,7 +117,7 @@ import java.io.PrintStream;
         *   in: none 
         *   out: seconds
         ************************************/
-        public int getAvgSeconds(){
+        private int getAvgSeconds(){
             int seconds = (int) (getTotalAverage() % min);
             return seconds;
         }//end getAvgSeconds
@@ -142,7 +142,7 @@ import java.io.PrintStream;
         *   in: none
         *   out: int hours
         ************************************/
-        public double getAvgHours(){
+        private double getAvgHours(){
             double hours = this.getTotalAverage()/3600;
             
             return hours;
@@ -154,7 +154,7 @@ import java.io.PrintStream;
         *   in: none 
         *   out: int speed
         ************************************/
-        public double getAvgSpeed(){
+        private double getAvgSpeed(){
             double speed = this.getAvgHours()/km;
             return speed;
         }//end getAvgSpeed
@@ -178,7 +178,7 @@ import java.io.PrintStream;
         *   in: none 
         *   out: hours
         ************************************/
-        public double getHours(){
+        private double getHours(){
             double hour = this.getAverage()/3600;
             return hour;
         }//end getHours

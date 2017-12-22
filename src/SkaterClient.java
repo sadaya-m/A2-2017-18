@@ -25,14 +25,14 @@ public class SkaterClient
     // ***** declaration of variables *****
         
         String strin;           //string
+        String input;           //input
         
         String[] tokens = null;     //tokens for splitting
+        String[] split = null;     //tokens for splitting
         String delim = "[ ]+";     //delimiter string for splitting
         
         SkaterClass[] timesList = new SkaterClass[10];
-        
-        int averageList[] = new int[10];
-        
+         
         int n = 0;  //counter
         
     // ***** create objects *****
@@ -52,7 +52,7 @@ public class SkaterClient
 
     // ***** get input *****
 
-        BufferedReader fin = new BufferedReader(new FileReader("skaterList.txt"));
+        BufferedReader fin = new BufferedReader(new FileReader("skaterData.txt"));
 
     // ***** processing *****
 
@@ -66,14 +66,28 @@ public class SkaterClient
             
             tokens = strin.split(delim);        //split strin to tokens
             
+            input = JOptionPane.showInputDialog("Add a time (in mm:ss)");
+            
+            if(tokens.length == 10){
+                for(int i=0;i<tokens.length-1;i++){ 
+                    tokens[i] = tokens[i+1];        //overwrite tokens[0] and all times go down by one index
+                }
+                tokens[tokens.length-1] = input;        //declare new time
+            }//end if tokens length == 10
+            
+            System.out.println("\nTime\tSpeed");
             for(int i = 0; i < tokens.length; i++){
                 //System.out.println(tokens[i]);              //print each token
+                
                 String[] time = tokens[i].split("[:]+");
-                //System.out.println(time[1]);      //testing
+                //String[] time2 = split[i].split("[:]+");
                 
+                //System.out.println(time[1]);      //testing;
+                                
                 timesList[n].pullTime(i, Integer.parseInt(time[0]), Integer.parseInt(time[1]));
+                //timesList[n].pullTime(i, Integer.parseInt(time2[0]), Integer.parseInt(time2[1]));
                 
-                System.out.println(tokens[i] + "\t"+ timesList[n].getSpeed(i));//testing for getting the average speed of each time
+                System.out.println(tokens[i] + "\t"+ timesList[n].getSpeed(i));//getting the time and speed of individual race
             }//end for loop
             
             int sum = 0;
@@ -94,7 +108,7 @@ public class SkaterClient
     // ***** output *****
     
         for(int i = 0; i < n; i++){
-            System.out.println(timesList[i].toString(i));
+            System.out.println("\n" + timesList[i].toString(i));
         } // end for loop
         
         
