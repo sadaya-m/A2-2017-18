@@ -8,6 +8,7 @@
  * *************************************************************/
  
  // import files here as needed
+// just testing to see if I can add and delete from this source code file RS
  
  
  public class SkaterClass
